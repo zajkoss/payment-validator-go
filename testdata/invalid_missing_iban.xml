@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Document>
+    <CstmrCdtTrfInitn>
+        <PmtInf>
+            <CdtTrfTxInf>
+                <Amt>
+                    <InstdAmt Ccy="PLN">100.00</InstdAmt>
+                </Amt>
+                <CdtrAcct>
+                    <Id>
+                        <IBAN></IBAN>
+                    </Id>
+                </CdtrAcct>
+            </CdtTrfTxInf>
+        </PmtInf>
+    </CstmrCdtTrfInitn>
+</Document>
