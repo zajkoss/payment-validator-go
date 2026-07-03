@@ -14,6 +14,13 @@ var validCountries = map[string]bool{
 	"NL": true,
 }
 
+var ibanLengths = map[string]int{
+	"PL": 28,
+	"DE": 22,
+	"GB": 22,
+	"NL": 18,
+}
+
 type FileStatus struct {
 	Filename string
 	IsValid  bool
@@ -79,10 +86,10 @@ func validateFile(path string) (FileStatus, error) {
 
 		if iban == "" {
 			result.Error = append(result.Error, "IBAN cannot be blank")
-		} else if len(iban) != 28 {
-			result.Error = append(result.Error, "IBAN must be 28 characters")
 		} else if !validCountries[iban[:2]] {
 			result.Error = append(result.Error, "IBAN has to start with a letters")
+		} else if len(iban) != ibanLengths[iban[:2]] {
+			result.Error = append(result.Error, fmt.Sprintf("IBAN must be %d characters", ibanLengths[iban[:2]]))
 		}
 
 		value, err := strconv.ParseFloat(amount, 64)
