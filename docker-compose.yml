@@ -1,0 +1,6 @@
+services:
+  validator:
+    build: .
+    volumes:
+      - ./testdata:/app/testdata
+    command: ./testdata
